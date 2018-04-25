@@ -10,45 +10,28 @@ April 24, 2018
 <HEAD>
 	<TITLE> Health Assist </TITLE>
 	
-	<script src="https://ajax.googleapis.com/ajax/libs/jquery/3.2.1/jquery.min.js">	</script> 
+	<script src="https://ajax.googleapis.com/ajax/libs/jquery/3.2.1/jquery.min.js">	</script>
+	
+	<link rel="stylesheet" type="text/css" href="CSS/style.css">
+	
 
-<!--	<SCRIPT>
-
-		function addDiv()
-		{
-			$("#orig").append("<div class='div2'> This is a new div </div>");
-			showButton();
-		}
-		
-		
-		function addText()
-		{
-			$(".div2").append(" <i>Hello</i> <b>World</b>");
-		}
-		
-		function deleteDiv()
-		{
-			$(".div2").remove();
-			$("#button2").css("display", "none");
-		}
-		
-		function showButton()
-		{
-			$("#button2").css("display", "inline");
-		}
-
-	</SCRIPT> -->
+	
+	
 </HEAD>
 
 <BODY>
-	<H1>hello world</H1>
-	
-	<div id="orig">	</div>
-	
-	
-	<input type="button" id="button1" value = "create" onclick = "addDiv();"></input>
-	<input type="button" id="button2" value = "add" onclick = "addText()" style = "display:none";></input>
-	<input type="button" id="button3" value = "Delete" onclick = "deleteDiv();"></input>
+	<H1></H1>
+
+	<div class="main">
+    <div class="button-panel">
+	<!--<Patient Button-->
+        <a href="HTML/ImADoc.html" class ='button' id='btnIPat'>I am a Patient</a>
+		<br><br/>
+		<!--Doctor Button-->
+        <a href="HTML/ImADoc.html" class='button' id='btnIDoc'>I am a Doctor</a>
+    </div>
+</div>
+
 	
 </BODY>
 
