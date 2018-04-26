@@ -12,7 +12,7 @@ April 24, 2018
 	
 	<script src="https://ajax.googleapis.com/ajax/libs/jquery/3.2.1/jquery.min.js">	</script>
 	
-	<link rel="stylesheet" type="text/css" href="C:\Users\skean\Desktop\WorkPlaceExperience\HealthAssist\CSS\style.css">	
+	<link rel="stylesheet" type="text/css" href="..\CSS\style.css">	
 </HEAD>
 
 <BODY>
@@ -24,18 +24,36 @@ April 24, 2018
 	<div class="main">	
 	
 	<div class="button-panel">
-		<form>
-		Username(Email):
-		<input type="text" id='username' name="username"><br><br>
-		Password:          
-		<input type="password" id='password' name="password">
+	<form>
+		<table id='tlog'>
+			
+		
+			<tr>
+				<td>
+					<label for="l_username">Username(Email)</label>
+				</td>
+				<td>
+					<input type="text" id='l_username' name="email">
+				</td>				
+			</tr>
+			
+			<tr>
+				<td>
+					<label for='l_password'>Password</label>
+				</td>
+				<td>
+					<input type="text" id='l_passassword' name="password">
+				</td>
+			</tr>
+			</table>
+	
 		</form>
 		
 		
-		<div class="button-panel">
+			
 			<!--<Patient Button brings to search page -->
-			<a href="Profile.html" class ='button' id='btnIPat'>Login</a>				
-		</div>
+			<a href="Profile.html" class ='button' id='btnLog'>Login</a>				
+	</div>
 	</div>
 	
 </BODY>

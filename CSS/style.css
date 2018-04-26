@@ -15,7 +15,7 @@
 
 .button-panel
 {    	
-	padding: 10%;
+	padding: 5%;
     display: table;
     margin: 0 auto;
 }
@@ -95,6 +95,10 @@
 #btnIDoc {
 	padding-bottom:5%;
 	padding-top:5%;
+}
+
+form {
+	padding: 5%;
 }
 
 
