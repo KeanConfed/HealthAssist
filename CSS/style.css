@@ -18,6 +18,13 @@
 	padding: 5%;
     display: table;
     margin: 0 auto;
+	
+	
+	positon: absolute;
+	top:0;
+	bottom:0;
+	left:0;
+	right:0;
 }
 
 .button {
@@ -27,7 +34,7 @@
 	
 	color: #fafafa;
 	
-	font-size: 26px;
+	font-size: 24px;
 	font-family: helvetica, serif;
 	text-decoration: none;   
 	
@@ -50,16 +57,17 @@
 	background-image: -ms-linear-gradient(top, #65a9d7 0%, #3e779d 100%);
 	padding: 11px 22px;
    
-    width: 100%;
+  	margin:0 auto;
+    width: 150px;
 }
 
 .button:hover {
 	text-align:center;
 	display: block;
 	
-	color: #FFFF00;
+	color: #fff000;
 	
-	font-size: 26px;
+	font-size: 24px;
 	font-family: helvetica, serif;
 	text-decoration: none;   
 	
@@ -69,7 +77,7 @@
 	-moz-border-radius: 8px;
    
 	-webkit-box-shadow: rgba(255,255,255,0.4) 0 1px 0, inset rgba(255,255,255,0.4) 0 1px 0;
-	-moz-box-shadow: rgba(255,255,255,0.4) 0 1px 0, inset rgba(255,255,255,0.4) 0 1px 0;   
+	-moz-box-shadow: rgba(255,255,255,0.4) 0 1px 0, inset rgba(255,255,255,0.4) 0 	1px 0;   
 	text-shadow: #7ea4bd 0 1px 0;
 	box-shadow: 5px 5px 2.5px grey;
    
@@ -82,7 +90,8 @@
 	background-image: -ms-linear-gradient(top, #65a9d7 0%, #3e779d 100%);
 	padding: 11px 22px;
    
-    width: 100%;
+  	margin:0 auto;
+    width: 150px;
    }   
 
 
@@ -95,6 +104,39 @@
 #btnIDoc {
 	padding-bottom:5%;
 	padding-top:5%;
+}
+
+#s_spselect {
+	display: block;
+	margin:0 auto;
+	width:55%;
+	
+}
+
+#p_search {
+	
+	margin: 0 auto;
+	width:100%;			
+	text-align:center;
+	font-weight:strong;
+	padding:5%;
+	font-weight:bold;
+}
+
+#profPic {
+margin: 0 auto;
+	width:100%;			
+	text-align:center;
+	font-weight:strong;
+	padding:5%;
+	font-weight:bold;	
+}
+
+#btnChangePic {
+	width:100px;
+	height:28px;
+	font-size:12px;
+	padding:1px;
 }
 
 form {
@@ -122,8 +164,7 @@ input
 {
 	padding:2px;
 	border:1px solid;
-	float:left;
-	
+	float:left;	
 }
 
 select {
@@ -131,8 +172,6 @@ select {
 	text-align:middle;
 	float:middle;
 	width:160px;
-	
-
 }
 
 
