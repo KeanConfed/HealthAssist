@@ -13,6 +13,40 @@ April 24, 2018
 	<script src="https://ajax.googleapis.com/ajax/libs/jquery/3.2.1/jquery.min.js">	</script>
 	
 	<link rel="stylesheet" type="text/css" href="..\CSS\style.css">	
+	
+		
+<!-- 	<script>
+function upload() {
+	var imgcanvas = document.getElementById("profileImage")
+	var fileinput = document.getElementById("imageUpload");
+	var filename = fileinput.value;
+	alert("Chose " + filename);
+}	
+	
+	
+	</script> -->
+	
+<script>
+	document.getElementById('imageUpload').addEventListener('change', upload, true);
+function upload(){
+
+
+   var file = document.getElementById("imageUpload").files[0];
+   var reader = new FileReader();
+   
+   reader.onloadend = function(){
+      document.getElementById('profPic').style.backgroundImage = "url(" + reader.result + ")";	  
+   }
+   
+   if(file){
+      reader.readAsDataURL(file);
+	  
+    }else{
+    }
+}
+</script>
+
+	
 </HEAD>
 
 <BODY>
@@ -22,12 +56,23 @@ April 24, 2018
 	</div>
 	<div class="main">	
 	<div class="button-panel">
-	<div id='profPic'>	
-		<img src="..\IMAGES\defaultprofilepic.png" alt="Profile pic">
-		
-		<a class="button" id='btnChangePic'>Change/Update Picture</a>
+	
+	
+	
+	<br><br>
+	
+	<div class='dProfPic' id='profPic'>	
 		
 	</div>
+	
+	<div>	
+	
+		<input id="imageUpload" type="file" multiple="false" accept="image/*" onchange="upload()"
+			   name="profile_photo" placeholder="Photo" required="" capture>
+		
+	</div>
+	
+	<br>
 	<form>
 		<table id='treg'>
 			
