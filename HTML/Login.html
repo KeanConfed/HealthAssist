@@ -1,60 +1,60 @@
+<!DOCTYPE html>
 <HTML>
 <!--
 CP340 - Experiential Learning Project
-Thunder Bay IT
+Thunder Bay IT : (Emmett Parker & Stephen Kean)
 HealthAssist Web-Application 
 April 24, 2018
 -->
 
 
+<!--Login.html page -->
+
 <HEAD>
+	<meta charset="UTF-8">
 	<TITLE> Login </TITLE>
 	
 	<script src="https://ajax.googleapis.com/ajax/libs/jquery/3.2.1/jquery.min.js">	</script>
 	
 	<link rel="stylesheet" type="text/css" href="..\CSS\style.css">	
-</HEAD>
+</HEAD><!--end Head-->
 
 <BODY>
-	
-	<div id='greet'>
-	<H1>Login</H1>
+	<!--header-->
+	<div id='greet'><br>
+		<H1>Login</H1>
 	</div>
 
 	<div class="main">	
-	
-	<div class="button-panel">
-	<form>
-		<table id='tlog'>
-			
+		<div class="button-panel">
+		<form>
+			<table id='tlog'>			
+				<tr>
+					<td>
+						<label for="l_username">Username(Email)</label>
+					</td>
+					<td>
+						<input type="text" id='l_username' name="email">
+					</td>				
+				</tr>
+				
+				<tr>
+					<td>
+						<label for='l_password'>Password</label>
+					</td>
+					<td>
+						<input type="password" id='l_passassword' name="password">
+					</td>
+				</tr>
+				</table>
 		
-			<tr>
-				<td>
-					<label for="l_username">Username(Email)</label>
-				</td>
-				<td>
-					<input type="text" id='l_username' name="email">
-				</td>				
-			</tr>
+			</form>	<!-- end form-->
 			
-			<tr>
-				<td>
-					<label for='l_password'>Password</label>
-				</td>
-				<td>
-					<input type="password" id='l_passassword' name="password">
-				</td>
-			</tr>
-			</table>
-	
-		</form>
-		
-		
-			
-			<!--<Patient Button brings to search page -->
-			<a href="Profile.html" class ='button' id='btnLog'>Login</a>				
-	</div>
-	</div>
+				<!--Login button brings to Profile page -->
+				<a href="Profile.html" class ='button' id='btnLog'>Login</a>		
+				
+		</div><!--end panel div-->
+	</div><!-- end main div -->
 	
 </BODY>
 

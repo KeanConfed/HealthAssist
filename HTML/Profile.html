@@ -1,57 +1,52 @@
+<!DOCTYPE html>
+
 <HTML>
 <!--
 CP340 - Experiential Learning Project
-Thunder Bay IT
+Thunder Bay IT : (Emmett Parker & Stephen Kean)
 HealthAssist Web-Application 
 April 24, 2018
 -->
 
 
+<!--Profile.html page -->
+
 <HEAD>
+	<meta charset="UTF-8">
 	<TITLE> Profile </TITLE>
 	
 	<script src="https://ajax.googleapis.com/ajax/libs/jquery/3.2.1/jquery.min.js">	</script>
 	
 	<link rel="stylesheet" type="text/css" href="..\CSS\style.css">	
-	
 		
-<!-- 	<script>
-function upload() {
-	var imgcanvas = document.getElementById("profileImage")
-	var fileinput = document.getElementById("imageUpload");
-	var filename = fileinput.value;
-	alert("Chose " + filename);
-}	
-	
-	
-	</script> -->
-	
-<script>
-	document.getElementById('imageUpload').addEventListener('change', upload, true);
-function upload(){
+
+	<!--script to upload a file and set as profile picture-->	
+	<script>
+		document.getElementById('imageUpload').addEventListener('change', upload, true);
+	function upload(){
 
 
-   var file = document.getElementById("imageUpload").files[0];
-   var reader = new FileReader();
-   
-   reader.onloadend = function(){
-      document.getElementById('profPic').style.backgroundImage = "url(" + reader.result + ")";	  
-   }
-   
-   if(file){
-      reader.readAsDataURL(file);
-	  
-    }else{
-    }
-}
-</script>
+	   var file = document.getElementById("imageUpload").files[0];
+	   var reader = new FileReader();
+	   
+	   reader.onloadend = function(){
+		  document.getElementById('profPic').style.backgroundImage = "url(" + reader.result + ")";	  
+	   }
+	   
+	   if(file){
+		  reader.readAsDataURL(file);
+		  
+		}else{
+		}
+	}
+	</script>
 
 	
 </HEAD>
 
 <BODY>
 	
-	<div id='greet'>
+	<div id='greet'><br>
 	<H1>Profile</H1>
 	</div>
 	<div class="main">	
@@ -59,13 +54,11 @@ function upload(){
 	
 	
 	
-	<br><br>
-	
 	<div class='dProfPic' id='profPic'>	
 		
 	</div>
 	
-	<div>	
+	<div id='divUpload' class='divUpload'>	
 	
 		<input id="imageUpload" type="file" multiple="false" accept="image/*" onchange="upload()"
 			   name="profile_photo" placeholder="Photo" required="" capture>

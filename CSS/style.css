@@ -1,21 +1,19 @@
-
-
-.main {
-    background: white;    
-	margin: auto;		
-	width: 100%;
-	height: 100%;
+.main
+{
+	margin-top:-50px;
 }
 
 #greet {
 	text-align:center;
 	background: lightgreen;
 	padding:1px;
+	width:100%;
+	position:relative;
+	height:105px;	
 }
 
 .button-panel
-{    	
-	
+{
     display: table;
     margin: 0 auto;	
 	positon: absolute;
@@ -23,10 +21,10 @@
 	bottom:0;
 	left:0;
 	right:0;
+	margin-top:5%;	
 }
 
-.button {
-	
+.button {	
 	text-align:center;
 	display: block;
 	
@@ -56,7 +54,9 @@
 	padding: 11px 30px;
    
   	margin:0 auto;
+	margin-bottom:30%;
     width: 150px;
+	
 }
 
 .button:hover {
@@ -64,16 +64,13 @@
    }   
 
 
-
 #s_spselect {
 	display: block;
 	margin:0 auto;
-	width:55%;
-	
+	width:55%;	
 }
 
-#p_search {
-	
+#p_search {	
 	margin: 0 auto;
 	width:100%;			
 	text-align:center;
@@ -94,6 +91,8 @@
 	background-repeat:no-repeat;
 	background-size: 230px 230px;
 	background-position:center;	
+	margin-left:33%;
+	
 }
 
 
@@ -101,20 +100,28 @@
 #imageUpload{
 	position: relative;
 	width: 180px;
-	height: 24px;
+	height: 18px;
 	z-index: 15;
 	top: 50%;
-	left: 61%;
-	margin: 0 0 0 -150px;
+	left:38%;
+	margin: 0 auto;
 	font-size:10px; 
-	text-align:center;
+	
 	font-weight:strong;
 	overflow: hidden;	
-	float:middle;
+	
 	background-color:#E6E6FA;  
 	color:blue;
-	margin-top:5px;
 	
+	border:1px strong;	
+}
+
+#btnUpdate{
+	margin-left:35%;	
+}
+
+.divUpload {
+	margin-top:5px;
 }
 
 
@@ -152,9 +159,9 @@ select {
 	width:160px;
 }
 
-/* div {
+/*  div {
 	border:1px solid;
-} */
+}  */
 
 
 
