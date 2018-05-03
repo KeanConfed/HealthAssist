@@ -1,5 +1,4 @@
 <!DOCTYPE html>
-
 <HTML>
 <!--
 CP340 - Experiential Learning Project
@@ -8,147 +7,37 @@ HealthAssist Web-Application
 April 24, 2018
 -->
 
-
-<!--Profile.html page -->
+<!--index.html page -->
 
 <HEAD>
 	<meta charset="UTF-8">
-	<TITLE> Profile </TITLE>
+	<TITLE> Entry </TITLE>
 	
 	<script src="https://ajax.googleapis.com/ajax/libs/jquery/3.2.1/jquery.min.js">	</script>
 	
-	<link rel="stylesheet" type="text/css" href="..\CSS\style.css">	
-		
-
-	<!--script to upload a file and set as profile picture-->	
-	<script>
-		document.getElementById('imageUpload').addEventListener('change', upload, true);
-	function upload(){
-
-
-	   var file = document.getElementById("imageUpload").files[0];
-	   var reader = new FileReader();
-	   
-	   reader.onloadend = function(){
-		  document.getElementById('profPic').style.backgroundImage = "url(" + reader.result + ")";	  
-	   }
-	   
-	   if(file){
-		  reader.readAsDataURL(file);
-		  
-		}else{
-		}
-	}
-	</script>
-
-	
+	<link rel="stylesheet" type="text/css" href="style.css">	
 </HEAD>
 
 <BODY>
-	
-	<div id='greet'><br>
-	<H1>Profile</H1>
-	</div>
-	<div class="main">	
-	<div class="button-panel">
-	
-	
-	
-	<div class='dProfPic' id='profPic'>	
-		
-	</div>
-	
-	<div id='divUpload' class='divUpload'>	
-	
-		<input id="imageUpload" type="file" multiple="false" accept="image/*" onchange="upload()"
-			   name="profile_photo" placeholder="Photo" required="" capture>
-		
-	</div>
-	
-	<br>
-	<form>
-		<table id='treg'>
-			
-			<tr>
-				<td>
-					<label for="p_fname">First Name</label> 
-				</td>
-				<td>
-					<input type="text" id='p_fname' name="fname">
-				</td>
-			</tr>
-				
-			<tr>
-				<td>
-					<label for="p_lname">Last Name</label> 
-				</td>
-				<td>
-					<input type="text" id='r_fname' name="lname">
-				</td>
-			</tr>
+	<!--greeting header-->
+	<div class="header">
+		<H1>Welcome to HealthAssist!</H1>	
+		<h4>Please click the option that applies to you!</h4>
+	</div>	
 
-			<tr>
-				<td>
-					<label for="p_email">Email (Username)</label>
-				</td>
-				<td>
-					<input type="text" id='p_email' name="email">
-				</td>				
-			</tr>
-			
-			<tr>
-				<td>
-					<label for='p_pass'>Password</label>
-				</td>
-				<td>
-					<input type="password" id='p_pass' name="password">
-				</td>
-			</tr>
-			
-			<tr>
-				<td>
-					<label for='p_caddress'>Clinic Address </label>
-				</td>
-				<td>
-					<input type="text" id='p_caddress' name="address">
-				</td>
-			</tr>
-			
-			<tr>
-				<td>
-					<label for="p_cphone">Clinic phone# </label>
-				</td>
-				<td>
-					<input type="text" id='p_cphone' name="phone">
-				</td>
-			</tr>
-			
-			<tr>				
-				<td>
-					<label for="p_gselect">Gender</label>
-				</td>
-					
-				<td>
-					<select id='p_gselect'>
-						<option value="Male">Male(M)</option>
-						<option value="Female">Female(F)</option>
-						<option value="other">Other(O)</option>
-					</select>
-					
-				</td>
-			</tr>			
-			<tr>
-				<td>
-					<label for="p_spselect">Specialization</label>
-				</td>
-				<td>
-					<select id ='p_spselect'> 
+	<form method="post" action="register.php">
+  	<?php include('errors.php'); ?>
+
+<p id="p_looking">I'm looking for a Doctor Specializing in:</p><br/>
+
+  	<div id ='search_special'>
+					<select id ='r_spselect' name="specialization" text-align="center"> 
 						<option value="Anatomical pathology">Anatomical pathology</option>
 						<option value="Anesthesiology">Anesthesiology</option>
 						<option value="Cardiology">Cardiology</option>
 						<option value="Cardiovascular/thoracic surgery">Cardiovascular/thoracic surgery</option>
 						<option value="Clinical immunology/allergy">Clinical immunology/allergy</option>
-						<option value="Dermatology">Dermatology</option>  
+						<option value="Dermatology">Dermatology</option>
 						<option value="Diagnostic radiology">Diagnostic radiology</option>
 						<option value="Emergency medicine">Emergency medicine</option>
 						<option value="Endocrinology/metabolism">Endocrinology/metabolism</option>
@@ -182,16 +71,12 @@ April 24, 2018
 						<option value="Rheumatology">Rheumatology</option>
 						<option value="Urology">Urology</option>
 					</select>
-				</td>
-			</tr>
-						
-		</table>
-	</form>	
-			<!--Submit Button-->
-			<a class="button" id='btnUpdate'>Update</a>
-	</div>
-	</div>
-	
+				
+  	</div>
+  	<div class="input-group">
+  	  <button type="submit" class="btn" name="search">Search</button>
+  	</div>
+  </form>
 </BODY>
 
 </HTML>

@@ -1,4 +1,6 @@
+<?php include('server.php') ?>
 <!DOCTYPE html>
+
 <HTML>
 <!--
 CP340 - Experiential Learning Project
@@ -8,30 +10,117 @@ April 24, 2018
 -->
 
 
-<!--Search.html page -->
+<!--Profile.html page -->
 
 <HEAD>
 	<meta charset="UTF-8">
-	<TITLE> Search </TITLE>
+	<TITLE> Profile </TITLE>
 	
+	<script src="https://ajax.googleapis.com/ajax/libs/jquery/3.2.1/jquery.min.js">	</script>
+	
+	<link rel="stylesheet" type="text/css" href="style.css">	
+		
+
+	<!--script to upload a file and set as profile picture-->	
+	<script>
+		document.getElementById('imageUpload').addEventListener('change', upload, true);
+	function upload(){
+
+
+	   var file = document.getElementById("imageUpload").files[0];
+	   var reader = new FileReader();
+	   
+	   reader.onloadend = function(){
+		  document.getElementById('profPic').style.backgroundImage = "url(" + reader.result + ")";	  
+	   }
+	   
+	   if(file){
+		  reader.readAsDataURL(file);
+		  
+		}else{
+		}
+	}
+	</script>
 
 	
-	<link rel="stylesheet" type="text/css" href="..\CSS\style.css">
 </HEAD>
 
 <BODY>
 	
-	<div id='greet'>
-	<br>
-	<H1>Search</H1>
+	<div class="header">
+		<h2>Profile</h2>
 	</div>
 
-	<div class="main">	
-		<div class="button-panel">
+	<form method="post" action="register.php">
+  	<?php include('errors.php'); ?>
+	
+	
+	
+	<div class='dProfPic' id='profPic'>	
 		
-		<p id='p_search'>I'M looking for a Doctor Specializing in:</p>
-		<br>
-		<select id ='s_spselect'> 
+	</div>
+	
+	<div id='divUpload' class='divUpload'>	
+	
+		<input id="imageUpload" type="file" multiple="false" accept="image/*" onchange="upload()"
+			   name="profile_photo" placeholder="Profile Picture Change/Update" required="" capture>
+ <br/>
+<label>Profile Picture Change/Update</label>
+		
+	</div>
+	
+	<br><br/>
+	  	<div class="input-group">
+  	  <label>firstname</label>
+  	  <input type="text" name="firstname" value="<?php echo $firstname; ?>">
+  	</div>
+
+<div class="input-group">
+  	  <label>lastname</label>
+  	  <input type="text" name="lastname" value="<?php echo $lastname; ?>">
+  	</div>
+
+  	<div class="input-group">
+  	  <label>Email</label>
+  	  <input type="email" name="email" value="<?php echo $email; ?>">
+  	</div>
+
+
+<div class="input-group">
+  	  <label>address</label>
+  	  <input type="text" name="address" value="<?php echo $address; ?>">
+  	</div>
+
+<div class="input-group">
+  	  <label>phone</label>
+  	  <input type="text" name="phone" value="<?php echo $phone; ?>">
+  	</div>
+
+
+<div class="input-group">
+  	  <label>Password</label>
+  	  <input type="password" name="password_1">
+  	</div>
+  	<div class="input-group">
+  	  <label>Confirm password</label>
+  	  <input type="password" name="password_2">
+  	</div>
+
+
+<div class="input-group">
+  	  <label>gender</label>
+  	
+  	<select name="gender" id='r_gselect' name="gender" <?php echo $gender; ?>>
+						<option value="Male">Male(M)</option>
+						<option value="Female">Female(F)</option>
+						<option value="other">Other(O)</option>
+					</select>
+</div>
+
+<div class="input-group">
+  	  <label>specialization</label>
+  	
+  	<select id ='r_spselect' name="specialization"> 
 						<option value="Anatomical pathology">Anatomical pathology</option>
 						<option value="Anesthesiology">Anesthesiology</option>
 						<option value="Cardiology">Cardiology</option>
@@ -71,14 +160,16 @@ April 24, 2018
 						<option value="Rheumatology">Rheumatology</option>
 						<option value="Urology">Urology</option>
 					</select>
-		
-		
-			<!--<Patient Button brings to search page -->
+</div>
+
+
+  	</div>
+  	<div class="input-group">
+  	  <button type="submit" class="btn" name="update">Update</button>
+  	</div>
+  </form>
 			
-				<br><br>
-			<!--Doctor Button-->
-			<a href="Results.html" class='button' id='btnSearch'>Search</a>
-		</div>
+	</div>
 	</div>
 	
 </BODY>

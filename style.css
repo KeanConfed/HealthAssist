@@ -1,31 +1,49 @@
-.main
-{
-	margin-top:-50px;
+* {
+  margin: 0px;
+  padding: 0px;
+}
+body {
+  font-size: 120%;
+  background: #F8F8FF;
 }
 
-#greet {
-	text-align:center;
-	background: lightgreen;
-	padding:1px;
-	width:100%;
-	position:relative;
-	height:105px;	
+.header {
+  width: 30%;
+  margin: 50px auto 0px;
+  color: white;
+  background: #5F9EA0;
+  text-align: center;
+  border: 1px solid #B0C4DE;
+  border-bottom: none;
+  border-radius: 10px 10px 0px 0px;
+  padding: 20px;
 }
-
-.button-panel
-{
-    display: table;
-    margin: 0 auto;	
-	positon: absolute;
-	top:0;
-	bottom:0;
-	left:0;
-	right:0;
-	margin-top:5%;	
+form, .content {
+  width: 30%;
+  margin: 0px auto;
+  padding: 20px;
+  border: 1px solid #B0C4DE;
+  background: white;
+  border-radius: 0px 0px 10px 10px;
 }
-
-.button {	
-	text-align:center;
+.input-group {
+  margin: 10px 0px 10px 0px;
+}
+.input-group label {
+  display: block;
+  text-align: left;
+  margin: 3px;
+}
+.input-group input {
+  height: 30px;
+  width: 93%;
+  padding: 5px 10px;
+  font-size: 16px;
+  border-radius: 5px;
+  border: 1px solid gray;
+}
+.btn {
+  	text-align:center;
 	display: block;
 	
 	color: #fafafa;
@@ -54,29 +72,38 @@
 	padding: 11px 30px;
    
   	margin:0 auto;
-	margin-bottom:30%;
+	margin-bottom:36px;
+	margin-top:36px;
     width: 150px;
-	
-}
 
-.button:hover {
+}
+.btn:hover {
 	color:yellow;
-   }   
-
-
-#s_spselect {
-	display: block;
-	margin:0 auto;
-	width:55%;	
+   }
+.error {
+  width: 92%; 
+  margin: 0px auto; 
+  padding: 10px; 
+  border: 1px solid #a94442; 
+  color: #a94442; 
+  background: #f2dede; 
+  border-radius: 5px; 
+  text-align: left;
 }
+.success {
+  color: #3c763d; 
+  background: #dff0d8; 
+  border: 1px solid #3c763d;
+  margin-bottom: 20px;
+}
+/*  div {
+	border:1px solid;
+}  */
 
-#p_search {	
-	margin: 0 auto;
-	width:100%;			
-	text-align:center;
-	font-weight:strong;
-	padding:5%;
-	font-weight:bold;
+
+
+td {
+padding:5px;
 }
 
 #profPic {
@@ -85,27 +112,24 @@
 	height: 230px;	
 	text-align:center;
 	font-weight:strong;
-	background-image: url('../IMAGES/defaultprofilepic.png');
+	background-image: url('default-profile-image.jpg');
 	font-weight:bold;
 	overflow: hidden;
 	background-repeat:no-repeat;
 	background-size: 230px 230px;
 	background-position:center;	
-	margin-left:33%;
+	
 	
 }
 
-
-/*change the picture */
 #imageUpload{
 	position: relative;
 	width: 180px;
-	height: 18px;
+	height: 24px;
 	z-index: 15;
-	top: 50%;
-	left:38%;
+	
 	margin: 0 auto;
-	font-size:10px; 
+	font-size:12px; 
 	
 	font-weight:strong;
 	overflow: hidden;	
@@ -116,61 +140,17 @@
 	border:1px strong;	
 }
 
-#btnUpdate{
-	margin-left:35%;	
-}
-
 .divUpload {
 	margin-top:5px;
+text-align:center;
+font-size:11px;
 }
 
-
-form {
-	padding: 5%;
+#p_looking {
+text-align:center;
+margin-top:24px;
 }
 
-
-table{	
-	width:500px;	
+#search_special {
+text-align:center;
 }
-
-td {
-	padding:3px;
-}
-
-label {
-	padding:2px;
-	float:right;
-	width:150px;
-	font-weight:bold;
-	font-size:18px;
-}
-
-input
-{
-	padding:2px;
-	border:1px solid;
-	float:left;	
-}
-
-select {
-	padding:1px;
-	text-align:middle;	
-	width:160px;
-}
-
-/*  div {
-	border:1px solid;
-}  */
-
-
-
-
-
-
-
-
-
-
-
-

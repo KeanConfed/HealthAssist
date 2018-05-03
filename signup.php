@@ -1,110 +1,72 @@
+<?php include('server.php') ?>
 <!DOCTYPE html>
-<HTML>
-<!--
-CP340 - Experiential Learning Project
-Thunder Bay IT : (Emmett Parker & Stephen Kean)
-HealthAssist Web-Application 
-April 24, 2018
--->
-
-<!--Registration.html page -->
-
-<HEAD>
-	<meta charset="UTF-8">
-	<TITLE> Registration </TITLE>
+<html>
+<head>
+  <title>Registration system PHP and MySQL</title>
+  <link rel="stylesheet" type="text/css" href="style.css">
+</head>
+<body>
+  <div class="header">
+  	<h2>Register</h2>
+  </div>
 	
-	<script src="https://ajax.googleapis.com/ajax/libs/jquery/3.2.1/jquery.min.js">	</script>
-	
-	<link rel="stylesheet" type="text/css" href="..\CSS\style.css">	
-</HEAD>
+  <form method="post" action="signup.php">
+  	<?php include('errors.php'); ?>
+  	<div class="input-group">
+  	  <label>firstname</label>
+  	  <input type="text" name="firstname" value="<?php echo $firstname; ?>">
+  	</div>
 
-<BODY>
-	
-	<div id='greet'><br>
-	<H1>Registration</H1>
-	</div>
+<div class="input-group">
+  	  <label>lastname</label>
+  	  <input type="text" name="lastname" value="<?php echo $lastname; ?>">
+  	</div>
 
-	<div class="main">
-	
-	<div class="button-panel">
-	
-	<form>
-		<table id='treg'>
-			
-			<tr>
-				<td>
-					<label for="r_fname">First Name</label> 
-				</td>
-				<td>
-					<input type="text" id='r_fname' name="fname">
-				</td>
-			</tr>
-				
-			<tr>
-				<td>
-					<label for="r_lname">Last Name</label> 
-				</td>
-				<td>
-					<input type="text" id='r_fname' name="lname">
-				</td>
-			</tr>
+  	<div class="input-group">
+  	  <label>Email</label>
+  	  <input type="email" name="email" value="<?php echo $email; ?>">
+  	</div>
 
-			<tr>
-				<td>
-					<label for="r_email">Email (Username)</label>
-				</td>
-				<td>
-					<input type="text" id='r_email' name="email">
-				</td>				
-			</tr>
-			
-			<tr>
-				<td>
-					<label for='r_pass'>Password</label>
-				</td>
-				<td>
-					<input type="password" id='r_pass' name="password">
-				</td>
-			</tr>
-			
-			<tr>
-				<td>
-					<label for='r_caddress'>Clinic Address </label>
-				</td>
-				<td>
-					<input type="text" id='r_caddress' name="address">
-				</td>
-			</tr>
-			
-			<tr>
-				<td>
-					<label for="r_cphone">Clinic phone# </label>
-				</td>
-				<td>
-					<input type="text" id='r_cphone' name="phone">
-				</td>
-			</tr>
-			
-			<tr>				
-				<td>
-					<label for="r_gselect">Gender</label>
-				</td>
-					
-				<td>
-					<select id='r_gselect'>
+<div class="input-group">
+  	  <label>Confirm Email</label>
+  	  <input type="email" name="email_2" value="<?php echo $email; ?>">
+  	</div>
+
+
+<div class="input-group">
+  	  <label>address</label>
+  	  <input type="text" name="address" value="<?php echo $address; ?>">
+  	</div>
+
+<div class="input-group">
+  	  <label>phone</label>
+  	  <input type="text" name="phone" value="<?php echo $phone; ?>">
+  	</div>
+
+<div class="input-group">
+  	  <label>Password</label>
+  	  <input type="password" name="password_1">
+  	</div>
+  	<div class="input-group">
+  	  <label>Confirm password</label>
+  	  <input type="password" name="password_2">
+  	</div>
+
+
+<div class="input-group">
+  	  <label>gender</label>
+  	
+  	<select name="gender" id='r_gselect' name="gender" <?php echo $gender; ?>>
 						<option value="Male">Male(M)</option>
 						<option value="Female">Female(F)</option>
 						<option value="other">Other(O)</option>
 					</select>
-					
-				</td>
-			</tr>			
-			<tr>
-				<td>
-					<label for="r_spselect">Specialization</label>
-				</td>
-				<td>
-					<select id ='r_spselect'> 
+</div>
+
+<div class="input-group">
+  	  <label>specialization</label>
+  	
+  	<select id ='r_spselect' name="specialization"> 
 						<option value="Anatomical pathology">Anatomical pathology</option>
 						<option value="Anesthesiology">Anesthesiology</option>
 						<option value="Cardiology">Cardiology</option>
@@ -144,17 +106,15 @@ April 24, 2018
 						<option value="Rheumatology">Rheumatology</option>
 						<option value="Urology">Urology</option>
 					</select>
-				</td>
-			</tr>
-						
-		</table>
-	</form>			
-			
-			<!--Submit Button-->
-			<a href="Login.html" class="button" id='btnSub'>Submit</a>
-	</div>
-	</div>
-	
-</BODY>
+</div>
 
-</HTML>
+  	
+  	<div class="input-group">
+  	  <button type="submit" class="btn" name="reg_user">Register</button>
+  	</div>
+  	<p>
+  		Already a member? <a href="login.php">Sign in</a>
+  	</p>
+  </form>
+</body>
+</html>
