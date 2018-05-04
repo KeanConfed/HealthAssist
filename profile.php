@@ -1,4 +1,5 @@
-<?php include('server.php') ?>
+<?php include('update.php') ?>
+
 <!DOCTYPE html>
 
 <HTML>
@@ -51,7 +52,7 @@ April 24, 2018
 		<h2>Profile</h2>
 	</div>
 
-	<form method="post" action="register.php">
+	<form method="post" action="profile.php">
   	<?php include('errors.php'); ?>
 	
 	
@@ -63,7 +64,7 @@ April 24, 2018
 	<div id='divUpload' class='divUpload'>	
 	
 		<input id="imageUpload" type="file" multiple="false" accept="image/*" onchange="upload()"
-			   name="profile_photo" placeholder="Profile Picture Change/Update" required="" capture>
+			   name="profile_photo" placeholder="Profile Picture Change/Update" >
  <br/>
 <label>Profile Picture Change/Update</label>
 		
@@ -83,6 +84,11 @@ April 24, 2018
   	<div class="input-group">
   	  <label>Email</label>
   	  <input type="email" name="email" value="<?php echo $email; ?>">
+  	</div>
+
+<div class="input-group">
+  	  <label>Confirm Email</label>
+  	  <input type="email" name="email_2">
   	</div>
 
 

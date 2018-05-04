@@ -7,11 +7,11 @@ HealthAssist Web-Application
 April 24, 2018
 -->
 
-<!--index.html page -->
+<!--search.html page -->
 
 <HEAD>
 	<meta charset="UTF-8">
-	<TITLE> Entry </TITLE>
+	<TITLE> Search </TITLE>
 	
 	<script src="https://ajax.googleapis.com/ajax/libs/jquery/3.2.1/jquery.min.js">	</script>
 	
@@ -22,10 +22,10 @@ April 24, 2018
 	<!--greeting header-->
 	<div class="header">
 		<H1>Welcome to HealthAssist!</H1>	
-		<h4>Please click the option that applies to you!</h4>
+		<h4>Search for a doctor with a specialization</h4>
 	</div>	
 
-	<form method="post" action="register.php">
+	<form method="post" action="results.php">
   	<?php include('errors.php'); ?>
 
 <p id="p_looking">I'm looking for a Doctor Specializing in:</p><br/>

@@ -2,7 +2,7 @@
 <!DOCTYPE html>
 <html>
 <head>
-  <title>Registration system PHP and MySQL</title>
+  <title>Signup</title>
   <link rel="stylesheet" type="text/css" href="style.css">
 </head>
 <body>
@@ -13,34 +13,34 @@
   <form method="post" action="signup.php">
   	<?php include('errors.php'); ?>
   	<div class="input-group">
-  	  <label>firstname</label>
-  	  <input type="text" name="firstname" value="<?php echo $firstname; ?>">
+  	  <label>First Name:</label>
+  	  <input type="text" name="firstname">
   	</div>
 
 <div class="input-group">
-  	  <label>lastname</label>
-  	  <input type="text" name="lastname" value="<?php echo $lastname; ?>">
+  	  <label>Last Name:</label>
+  	  <input type="text" name="lastname">
   	</div>
 
   	<div class="input-group">
   	  <label>Email</label>
-  	  <input type="email" name="email" value="<?php echo $email; ?>">
+  	  <input type="email" name="email">
   	</div>
 
 <div class="input-group">
   	  <label>Confirm Email</label>
-  	  <input type="email" name="email_2" value="<?php echo $email; ?>">
+  	  <input type="email" name="email_2">
   	</div>
 
 
 <div class="input-group">
-  	  <label>address</label>
-  	  <input type="text" name="address" value="<?php echo $address; ?>">
+  	  <label>Clinic Address:</label>
+  	  <input type="text" name="address">
   	</div>
 
 <div class="input-group">
-  	  <label>phone</label>
-  	  <input type="text" name="phone" value="<?php echo $phone; ?>">
+  	  <label>Clinic Phone Number:</label>
+  	  <input type="text" name="phone">
   	</div>
 
 <div class="input-group">
@@ -54,9 +54,10 @@
 
 
 <div class="input-group">
-  	  <label>gender</label>
+  	  <label>Gender</label>
   	
-  	<select name="gender" id='r_gselect' name="gender" <?php echo $gender; ?>>
+  	<select name="gender" id='r_gselect' name="gender">
+						<option value="">   </option>
 						<option value="Male">Male(M)</option>
 						<option value="Female">Female(F)</option>
 						<option value="other">Other(O)</option>
@@ -64,9 +65,10 @@
 </div>
 
 <div class="input-group">
-  	  <label>specialization</label>
+  	  <label>Specialization</label>
   	
-  	<select id ='r_spselect' name="specialization"> 
+  	<select id ='r_spselect' name="specialization">
+						<option value="">   </option> 
 						<option value="Anatomical pathology">Anatomical pathology</option>
 						<option value="Anesthesiology">Anesthesiology</option>
 						<option value="Cardiology">Cardiology</option>
