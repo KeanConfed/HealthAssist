@@ -1,3 +1,6 @@
+<?php
+session_start();
+?>
 <!DOCTYPE html>
 
 <HTML>
@@ -46,6 +49,21 @@ April 24, 2018
 
 <BODY>
 	
+	<?php
+$servername = "localhost";
+$dbusername = "user";
+$dbpassword = "user";
+$dbname = "healthassist";
+// Create connection
+$conn = new mysqli($servername, $dbusername, $dbpassword, $dbname);
+$ID = $_SESSION['ID'];
+$sql = "SELECT * FROM doctortable WHERE id = $ID";
+$sth = $conn->query($sql);
+$result=mysqli_fetch_array($sth);
+
+echo '<img src="data:image/jpeg;base64,'.base64_encode( $result['image'] ).'"/>';
+?>
+
 	<div id='greet'><br>
 	<H1>Profile</H1>
 	</div>
@@ -54,82 +72,82 @@ April 24, 2018
 	
 	
 	
-	<div class='dProfPic' id='profPic'>	
+	<div class='dProfPic' id='profPic' >	
 		
 	</div>
-	
+	<form action="Update.php" method="post">
 	<div id='divUpload' class='divUpload'>	
 	
 		<input id="imageUpload" type="file" multiple="false" accept="image/*" onchange="upload()"
-			   name="profile_photo" placeholder="Photo" required="" capture>
+			   name="profile_photo" placeholder="Photo"  required="" capture>
 		
 	</div>
 	
 	<br>
-	<form>
-		<table id='treg'>
+	
+<table id='treg'>
 			
 			<tr>
 				<td>
-					<label for="p_fname">First Name</label> 
+					<label for="fname">First Name</label> 
 				</td>
 				<td>
-					<input type="text" id='p_fname' name="fname">
+					<input type="text"  name="fname">
 				</td>
 			</tr>
 				
 			<tr>
 				<td>
-					<label for="p_lname">Last Name</label> 
+					<label for="lname">Last Name</label> 
 				</td>
 				<td>
-					<input type="text" id='r_fname' name="lname">
+					<input type="text" name="lname">
 				</td>
 			</tr>
 
 			<tr>
 				<td>
-					<label for="p_email">Email (Username)</label>
+					<label for="email">Email (Username)</label>
 				</td>
 				<td>
-					<input type="text" id='p_email' name="email">
+					<input type="text"  name="email">
 				</td>				
 			</tr>
 			
 			<tr>
 				<td>
-					<label for='p_pass'>Password</label>
+					<label for='password'>Password</label>
 				</td>
 				<td>
-					<input type="password" id='p_pass' name="password">
-				</td>
-			</tr>
-			
-			<tr>
-				<td>
-					<label for='p_caddress'>Clinic Address </label>
-				</td>
-				<td>
-					<input type="text" id='p_caddress' name="address">
+					<input type="password"  name="password">
 				</td>
 			</tr>
 			
 			<tr>
 				<td>
-					<label for="p_cphone">Clinic phone# </label>
+					<label for='address'>Clinic Address </label>
 				</td>
 				<td>
-					<input type="text" id='p_cphone' name="phone">
+					<input type="text"  name="address">
+				</td>
+			</tr>
+			
+			<tr>
+				<td>
+					<label for="phone">Clinic phone# </label>
+				</td>
+				<td>
+					<input type="text"  name="phone">
 				</td>
 			</tr>
 			
 			<tr>				
 				<td>
-					<label for="p_gselect">Gender</label>
+					<label for="gender">Gender</label>
 				</td>
 					
 				<td>
-					<select id='p_gselect'>
+					<select name='gender'>
 						<option value="Male">Male(M)</option>
 						<option value="Female">Female(F)</option>
 						<option value="other">Other(O)</option>
@@ -139,16 +157,16 @@ April 24, 2018
 			</tr>			
 			<tr>
 				<td>
-					<label for="p_spselect">Specialization</label>
+					<label for="Specialization">Specialization</label>
 				</td>
 				<td>
-					<select id ='p_spselect'> 
+					<select name='Specialization'> 
 						<option value="Anatomical pathology">Anatomical pathology</option>
 						<option value="Anesthesiology">Anesthesiology</option>
 						<option value="Cardiology">Cardiology</option>
 						<option value="Cardiovascular/thoracic surgery">Cardiovascular/thoracic surgery</option>
 						<option value="Clinical immunology/allergy">Clinical immunology/allergy</option>
-						<option value="Dermatology">Dermatology</option>  
+						<option value="Dermatology">Dermatology</option>
 						<option value="Diagnostic radiology">Diagnostic radiology</option>
 						<option value="Emergency medicine">Emergency medicine</option>
 						<option value="Endocrinology/metabolism">Endocrinology/metabolism</option>
@@ -186,9 +204,9 @@ April 24, 2018
 			</tr>
 						
 		</table>
-	</form>	
-			<!--Submit Button-->
-			<a class="button" id='btnUpdate'>Update</a>
+	<input type="submit" name="submit" value="Update">
+			
+	</form>
 	</div>
 	</div>
 	

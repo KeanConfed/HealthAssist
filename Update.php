@@ -1,3 +1,6 @@
+<?php
+session_start();
+?>
 <!DOCTYPE html>
 <HTML>
 <!--
@@ -33,12 +36,22 @@ if ($conn->connect_error) {
 	$phone = $_POST['phone'];
 	$gender = $_POST['gender'];
 	$Spec = $_POST['Specialization'];
-
-	$sql = "INSERT INTO doctortable (id, Email, First_Name, Last_Name,Picture, Password, Phone_Number, Gender, Special, address) VALUES (NULL,'".$Email."', '".$Fname."', '".$Lname."',NULL ,'".$Pass."', '".$phone."', '".$gender."', '".$Spec."', '".$address."')";
-	
+	$ID = $_SESSION['ID'];
+	$image = $_POST['profile_photo'];
+	$sql = 
+	"UPDATE doctortable SET Email='".$Email."', 
+	First_Name='".$Fname."', 
+	Last_Name='".$Lname."' , 
+	Picture='".$image."',
+	Password='".$Pass."', 
+	Phone_Number='".$phone."', 
+	Gender='".$gender."', 
+	Special='".$Spec."', 
+	address='".$address."' 
+	WHERE id='".$ID."'";
+   
    if ($conn->query($sql) === TRUE) {
-    echo "New record created successfully";
-	header("Location: Login.php");
+    echo "Record Updated successfully";
 	exit();
 } else {
     echo "Error: " . $sql . "<br>" . $conn->error;
