@@ -1,103 +1,75 @@
 <?php
 session_start();
+?>
 
+<?php
 // initializing variables
 $servername = "localhost";
 $username = "root";
 $password = "password";
 $dbname = "registration";
 
-
-$firstname = "";
-$lastname = "";
-
-$email = "";
-$address = "";
-$phone = "";
-$gender = "";
-$specialization = "";
-
-$errors = array();
-
 // Create connection
 $conn = mysqli_connect($servername, $username, $password, $dbname);
-
 // Check connection
 if (!$conn) {
     die("Connection failed: " . mysqli_connect_error());
-
-
-$Email = $_POST['username'];
-	$Pass = $_POST['password'];
-	$sql = mysql_query("SELECT * FROM doctortable WHERE Email = '$Email' AND Password = '$Pass' LIMIT 1");
-	if (mysql_num_rows($sql) == 1) {
-		$row = mysql_fetch_array($sql);
-		session_start();
-		$_SESSION['email'] = $row['email'];
-		$_SESSION['firstname'] = $row['firstname'];
-		$_SESSION['lastname'] = $row['lastname'];
-		$_SESSION['phone'] = $row['phone'];
-		$_SESSION['gender'] = $row['gender'];
-		$_SESSION['specialization'] = $row['specialization'];
-		header("Location:profile.html");
-		exit();
-	}else{ 
-        header("Location: login.php"); 
-        exit(); 
-   } 
-
 }
 
-if (isset($_POST['update'])) {
-// receive all input values from the form
-  $firstname = mysqli_real_escape_string($conn, $_POST['firstname']);
-  $email = mysqli_real_escape_string($conn, $_POST['email']);
-$email_2 = mysqli_real_escape_string($conn, $_POST['email_2']);
-  
-$lastname = mysqli_real_escape_string($conn, $_POST['lastname']);
-$address = mysqli_real_escape_string($conn, $_POST['address']);
-$phone = mysqli_real_escape_string($conn, $_POST['phone']);
-$gender = mysqli_real_escape_string($conn, $_POST['gender']);
-$specialization = mysqli_real_escape_string($conn, $_POST['specialization']);
 
-  $password_1 = mysqli_real_escape_string($conn, $_POST['password_1']);
-  $password_2 = mysqli_real_escape_string($conn, $_POST['password_2']);
+	$Fname = $_POST['firstname'];
+	$Lname = $_POST['lastname'];
+	$Email = $_POST['email'];
+	$Pass = $_POST['password'];
+	$address = $_POST['address'];
+	$phone = $_POST['phone'];
+	$gender = $_POST['gender'];
+	$Spec = $_POST['specialization'];
+	$ID = $_SESSION['id'];
 
-$id = $_SESSION['id'];
+	$errors = array(); 
 
 
 
+if (isset($_POST['update'])) {	
+	$sql = 
+	"UPDATE users SET email='".$Email."', 
+	firstname='$Fname', 
+	lastname='".$Lname."' , 
+	password='".$Pass."', 
+	phone='".$phone."', 
+	gender='".$gender."', 
+	specialization='".$Spec."', 
+	address='".$address."' 
+	WHERE id = '".$ID."'";
 
-$user_check_query = "SELECT * FROM users WHERE email='$email'  LIMIT 1";
-  $result = mysqli_query($conn, $user_check_query);
+
+//
+if ($password_1 != $password_2) {
+	array_push($errors, "The two passwords do not match");
+  }
+
+if ($email_1 != $e_2) {
+	array_push($errors, "The two passwords do not match");
+  }
+
+// first check the database to make sure 
+  // a user does not already exist with the same username and/or email
+  $user_check_query = "SELECT * FROM users WHERE email='$email'  LIMIT 1";
+  $result = mysqli_query($db, $user_check_query);
   $user = mysqli_fetch_assoc($result);
   
  
-    if ($user['email'] === $email) {
+
+    if ($user['email'] === $Email) {
       array_push($errors, "email already exists");
     }
-  
 
-  // Finally, register user if there are no errors in the form
-  if (count($errors) == 0) {
-  	//$password = md5($password_1);//encrypt the password before saving in the database
-
-  	$query = "UPDATE users SET firstname = '$_POST[firstname]', lastname = '$_POST[lastname]' , email= '$_POST[email]', password = '$_POST[password]', phone = '$_POST[phone]', gender = '$_POST[gender]', specialization = '$_POST[specialization]'  WHERE email='$email'";
-
-  	mysqli_query($conn, $query);
-  	$_SESSION['email'] = $email;
-  	$_SESSION['success'] = "You are now logged in";
-  	header('location: index.php');
-  }
-
-
-
-	if (mysqli_query($conn, $query)) {
-	    	echo "Record updated successfully";
-		} else {
-	    	echo "Error updating record: " . mysqli_error($conn);
-		}
-	}
-
+if (mysqli_query($conn, $sql)) {
+    echo "Record updated successfully";
+} else {
+    echo "Error updating record: " . mysqli_error($conn);
+}
+}
 mysqli_close($conn);
 ?>

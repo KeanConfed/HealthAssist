@@ -1,6 +1,7 @@
 <?php
 session_start();
-
+?>
+<?php
 // initializing variables
 $firstname = "";
 $lastname = "";
@@ -10,6 +11,7 @@ $address = "";
 $phone = "";
 $gender = "";
 $specialization = "";
+$id = "";
 
 $errors = array(); 
 
@@ -64,14 +66,15 @@ if (empty($specialization)) { array_push($errors, "Specialization is required");
   if (count($errors) == 0) {
   	$password = md5($password_1);//encrypt the password before saving in the database
 
-  	$query = "INSERT INTO users (firstname, lastname, email, password, address, phone, gender, specialization) 
-  			  VALUES('$firstname', '$lastname', '$email', '$password', '$address', '$phone', '$gender', '$specialization')";
+  	$query = "INSERT INTO users (firstname, lastname, email, password, address, phone, gender, specialization, image) 
+  			  VALUES('$firstname', '$lastname', '$email', '$password', '$address', '$phone', '$gender', '$specialization', '$image')";
   	mysqli_query($db, $query);
   	$_SESSION['email'] = $email;
   	$_SESSION['success'] = "You are now logged in";
   	header('location: index.php');
   }
 }
+
 
 // LOGIN USER
 if (isset($_POST['login_user'])) {
@@ -87,11 +90,22 @@ if (isset($_POST['login_user'])) {
 
   if (count($errors) == 0) {
   	$password = md5($password);
-  	$query = "SELECT * FROM users WHERE email='$email' AND password='$password'";
+  	$query = "SELECT * FROM users WHERE email='$email' AND password='$password' LIMIT 1";
   	$results = mysqli_query($db, $query);
-  	if (mysqli_num_rows($results) == 1) {
-  	  $_SESSION['email'] = $email;
+  	
+	if (mysqli_num_rows($results) == 1) {
+	$row = mysqli_fetch_array($query);
+	$_SESSION['id'] = $row['id'];
+	$_SESSION['email'] = $row['email'];
+	$_SESSION['firstname'] = $row['firstname'];
+	$_SESSION['lastname'] = $row['lastname'];
+	$_SESSION['phone'] = $row['phone'];
+	$_SESSION['gender'] = $row['gender'];
+	$_SESSION['specialization'] = $row['specialization'];
+
+  	 
   	  $_SESSION['success'] = "You are now logged in";
+		
   	  header('location: profile.php');
   	}else {
   		array_push($errors, "Wrong username/password combination");

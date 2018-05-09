@@ -1,3 +1,4 @@
+<?php session_start(); ?>
 <!DOCTYPE html>
 <HTML>
 <!--
@@ -15,7 +16,9 @@ April 24, 2018
 	
 	<script src="https://ajax.googleapis.com/ajax/libs/jquery/3.2.1/jquery.min.js">	</script>
 	
-	<link rel="stylesheet" type="text/css" href="style.css">	
+	<link rel="stylesheet" type="text/css" href="style.css">
+
+<?php $specialization = $_SESSION['specialization']; ?>	
 </HEAD>
 
 <BODY>
@@ -25,7 +28,7 @@ April 24, 2018
 		<h4>Search for a doctor with a specialization</h4>
 	</div>	
 
-	<form method="post" action="results.php">
+	<form action="results.php" method="GET">   
   	<?php include('errors.php'); ?>
 
 <p id="p_looking">I'm looking for a Doctor Specializing in:</p><br/>

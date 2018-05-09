@@ -74,12 +74,13 @@ form, .content {
   	margin:0 auto;
 	margin-bottom:36px;
 	margin-top:36px;
-    width: 150px;
+    	width: 150px;
 
 }
 .btn:hover {
 	color:yellow;
    }
+
 .error {
   width: 92%; 
   margin: 0px auto; 
@@ -142,8 +143,8 @@ padding:5px;
 
 .divUpload {
 	margin-top:5px;
-text-align:center;
-font-size:11px;
+	text-align:center;
+	font-size:11px;
 }
 
 #p_looking {
@@ -154,3 +155,5 @@ margin-top:24px;
 #search_special {
 text-align:center;
 }
+
+

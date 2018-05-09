@@ -1,7 +1,6 @@
 <?php include('update.php') ?>
 
 <!DOCTYPE html>
-
 <HTML>
 <!--
 CP340 - Experiential Learning Project
@@ -116,7 +115,7 @@ April 24, 2018
 <div class="input-group">
   	  <label>gender</label>
   	
-  	<select name="gender" id='r_gselect' name="gender" <?php echo $gender; ?>>
+  	<select name="gender" id='r_gselect' name="gender" value= "<?php echo $gender; ?>">
 						<option value="Male">Male(M)</option>
 						<option value="Female">Female(F)</option>
 						<option value="other">Other(O)</option>
@@ -126,7 +125,7 @@ April 24, 2018
 <div class="input-group">
   	  <label>specialization</label>
   	
-  	<select id ='r_spselect' name="specialization"> 
+  	<select id ='r_spselect' name="specialization" value= "<?php echo $specialization; ?>"> 
 						<option value="Anatomical pathology">Anatomical pathology</option>
 						<option value="Anesthesiology">Anesthesiology</option>
 						<option value="Cardiology">Cardiology</option>
