@@ -1,4 +1,8 @@
+<?php
+session_start();
+?>
 <?php include('update.php') ?>
+<?php include('server.php') ?>
 
 <!DOCTYPE html>
 <HTML>
@@ -14,7 +18,8 @@ April 24, 2018
 
 <HEAD>
 	<meta charset="UTF-8">
-	<TITLE> Profile </TITLE>
+	<H1>Profile</H1>	
+	<h4>Here you can update your account</h4>
 	
 	<script src="https://ajax.googleapis.com/ajax/libs/jquery/3.2.1/jquery.min.js">	</script>
 	
@@ -46,7 +51,17 @@ April 24, 2018
 </HEAD>
 
 <BODY>
-	
+you are now signed in <br/>
+
+<?php
+var_dump($_SESSION);
+?> 
+<br/>
+<?php
+// Echo session variables that were set on previous page
+echo "Favorite color is " . $_SESSION["favcolor"] . ".<br>";
+
+?>	
 	<div class="header">
 		<h2>Profile</h2>
 	</div>
