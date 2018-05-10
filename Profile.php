@@ -1,8 +1,8 @@
 <?php
 session_start();
 ?>
-<!DOCTYPE html>
 
+<!DOCTYPE html>
 <HTML>
 <!--
 CP340 - Experiential Learning Project
@@ -20,7 +20,7 @@ April 24, 2018
 	
 	<script src="https://ajax.googleapis.com/ajax/libs/jquery/3.2.1/jquery.min.js">	</script>
 	
-	<link rel="stylesheet" type="text/css" href="..\CSS\style.css">	
+	<link rel="stylesheet" type="text/css" href="style.css">	
 		
 
 	<!--script to upload a file and set as profile picture-->	
@@ -49,118 +49,87 @@ April 24, 2018
 
 <BODY>
 	
-	<?php
-$servername = "localhost";
-$dbusername = "user";
-$dbpassword = "user";
-$dbname = "healthassist";
-// Create connection
-$conn = new mysqli($servername, $dbusername, $dbpassword, $dbname);
-$ID = $_SESSION['ID'];
-$sql = "SELECT * FROM doctortable WHERE id = $ID";
-$sth = $conn->query($sql);
-$result=mysqli_fetch_array($sth);
-
-echo '<img src="data:image/jpeg;base64,'.base64_encode( $result['image'] ).'"/>';
-?>
-
-	<div id='greet'><br>
-	<H1>Profile</H1>
+	<div class="header">
+		<h2>Profile</h2>
 	</div>
-	<div class="main">	
-	<div class="button-panel">
+
+
+<form action="Update.php" method="post" enctype="multipart/form-data">
+ 
 	
 	
 	
-	<div class='dProfPic' id='profPic' >	
+	<div class='dProfPic' id='profPic'>	
 		
 	</div>
-	<form action="Update.php" method="post">
+	
 	<div id='divUpload' class='divUpload'>	
 	
 		<input id="imageUpload" type="file" multiple="false" accept="image/*" onchange="upload()"
-			   name="profile_photo" placeholder="Photo"  required="" capture>
-		
+			   name="profile_photo" placeholder="Profile Picture Change/Update" >
+ <br/>
+<label>Profile Picture Change/Update</label>
+		<input type="text" name="Error" value="<?php echo $_SESSION['Error']; ?>" readonly> 
+				
 	</div>
 	
-	<br>
-	
-<table id='treg'>
-			
-			<tr>
-				<td>
-					<label for="fname">First Name</label> 
-				</td>
-				<td>
-					<input type="text"  name="fname">
-				</td>
-			</tr>
-				
-			<tr>
-				<td>
-					<label for="lname">Last Name</label> 
-				</td>
-				<td>
-					<input type="text" name="lname">
-				</td>
-			</tr>
+	<br><br/>
+	  	<div class="input-group">
+  	  <label>firstname</label>
+  	  <input type="text" name="fname" value="<?php echo $_SESSION['FirstName']; ?>">
+  	</div>
 
-			<tr>
-				<td>
-					<label for="email">Email (Username)</label>
-				</td>
-				<td>
-					<input type="text"  name="email">
-				</td>				
-			</tr>
-			
-			<tr>
-				<td>
-					<label for='password'>Password</label>
-				</td>
-				<td>
-					<input type="password"  name="password">
-				</td>
-			</tr>
-			
-			<tr>
-				<td>
-					<label for='address'>Clinic Address </label>
-				</td>
-				<td>
-					<input type="text"  name="address">
-				</td>
-			</tr>
-			
-			<tr>
-				<td>
-					<label for="phone">Clinic phone# </label>
-				</td>
-				<td>
-					<input type="text"  name="phone">
-				</td>
-			</tr>
-			
-			<tr>				
-				<td>
-					<label for="gender">Gender</label>
-				</td>
-					
-				<td>
-					<select name='gender'>
+<div class="input-group">
+  	  <label>lastname</label>
+  	  <input type="text" name="lname" value="<?php echo $_SESSION['LastName']; ?>">
+  	</div>
+
+  	<div class="input-group">
+  	  <label>Email</label>
+  	  <input type="email" name="email" value="<?php echo $_SESSION['username']; ?>">
+  	</div>
+
+<div class="input-group">
+  	  <label>Confirm Email</label>
+  	  <input type="email" name="email2">
+  	</div>
+
+
+<div class="input-group">
+  	  <label>address</label>
+  	  <input type="text" name="address" value="<?php echo $_SESSION['Address']; ?>">
+  	</div>
+
+<div class="input-group">
+  	  <label>phone</label>
+  	  <input type="text" name="phone" value="<?php echo $_SESSION['Phone']; ?>">
+  	</div>
+
+
+<div class="input-group">
+  	  <label>Password</label>
+  	  <input type="password" name="password">
+  	</div>
+  	<div class="input-group">
+  	  <label>Confirm password</label>
+  	  <input type="password" name="password2">
+  	</div>
+
+
+<div class="input-group">
+  	  <label>gender</label>
+  	
+  	<select name="gender" id='r_gselect' name="gender">
 						<option value="Male">Male(M)</option>
 						<option value="Female">Female(F)</option>
 						<option value="other">Other(O)</option>
 					</select>
-					
-				</td>
-			</tr>			
-			<tr>
-				<td>
-					<label for="Specialization">Specialization</label>
-				</td>
-				<td>
-					<select name='Specialization'> 
+</div>
+
+<div class="input-group">
+  	  <label>specialization</label>
+  	
+  	<select id ='r_spselect' name="Specialization"> 
 						<option value="Anatomical pathology">Anatomical pathology</option>
 						<option value="Anesthesiology">Anesthesiology</option>
 						<option value="Cardiology">Cardiology</option>
@@ -200,13 +169,15 @@ echo '<img src="data:image/jpeg;base64,'.base64_encode( $result['image'] ).'"/>'
 						<option value="Rheumatology">Rheumatology</option>
 						<option value="Urology">Urology</option>
 					</select>
-				</td>
-			</tr>
-						
-		</table>
-	<input type="submit" name="submit" value="Update">
+</div>
+
+
+  	</div>
+  	<div class="input-group">
+  	  <input type="submit" class="btn" name="submit" value="Update">
+  	</div>
+  </form>
 			
-	</form>
 	</div>
 	</div>
 	

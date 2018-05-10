@@ -1,3 +1,6 @@
+<?php
+session_start();
+?>
 <!DOCTYPE html>
 <HTML>
 <!--
@@ -30,6 +33,12 @@ April 24, 2018
 	
 	<form action="Pass.php" method="post">
 		<table id='treg'>
+		<tr>
+				<td>
+					<input type="text" name="Error" value="<?php echo $_SESSION['Error']; ?>" readonly> 
+				</td>
+				
+			</tr>
 			
 			<tr>
 				<td>
@@ -54,7 +63,16 @@ April 24, 2018
 					<label for="email">Email (Username)</label>
 				</td>
 				<td>
-					<input type="text"  name="email">
+					<input type="email"  name="email">
+				</td>				
+			</tr>
+			
+			<tr>
+				<td>
+					<label for="email2">Re enter Email (Username)</label>
+				</td>
+				<td>
+					<input type="email"  name="email2">
 				</td>				
 			</tr>
 			
@@ -64,6 +82,14 @@ April 24, 2018
 				</td>
 				<td>
 					<input type="password"  name="password">
+				</td>
+			</tr>
+			<tr>
+				<td>
+					<label for='password2'>Reenter Password</label>
+				</td>
+				<td>
+					<input type="password"  name="password2">
 				</td>
 			</tr>
 			
@@ -152,7 +178,6 @@ April 24, 2018
 			
 	</form>			
 			
-			<!--Submit Button-->
 			
 	</div>
 	</div>

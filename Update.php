@@ -31,26 +31,33 @@ if ($conn->connect_error) {
 	$Fname = $_POST['fname'];
 	$Lname = $_POST['lname'];
 	$Email = $_POST['email'];
+	$Email2 = $_POST['email2'];
 	$Pass = $_POST['password'];
+	$Pass2 = $_POST['password2'];
 	$address = $_POST['address'];
 	$phone = $_POST['phone'];
 	$gender = $_POST['gender'];
 	$Spec = $_POST['Specialization'];
 	$ID = $_SESSION['ID'];
-	$image = $_POST['profile_photo'];
 	$sql = 
 	"UPDATE doctortable SET Email='".$Email."', 
 	First_Name='".$Fname."', 
 	Last_Name='".$Lname."' , 
-	Picture='".$image."',
 	Password='".$Pass."', 
 	Phone_Number='".$phone."', 
 	Gender='".$gender."', 
 	Special='".$Spec."', 
 	address='".$address."' 
 	WHERE id='".$ID."'";
-   
-   if ($conn->query($sql) === TRUE) {
+   if($Pass != $Pass2){
+	$_SESSION['Error'] ="Passwords do not match";
+	header("Location: Profile.php");
+	exit();
+	}else if($Email != $Email2){
+	$_SESSION['Error'] ="Usernames/Emails do not match";
+	header("Location: Profile.php");
+	exit();
+	}else if ($conn->query($sql) === TRUE) {
     echo "Record Updated successfully";
 	exit();
 } else {

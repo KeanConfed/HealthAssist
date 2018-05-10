@@ -32,6 +32,7 @@ mysql_select_db($dbname,$conn) or die("Simply can't select database");
 	if (mysql_num_rows($sql) == 1) {
 		$row = mysql_fetch_array($sql);
 		$_SESSION['ID'] = $row['id'];
+		$_SESSION['Address'] = $row['address'];
 		$_SESSION['username'] = $row['Email'];
 		$_SESSION['FirstName'] = $row['First_Name'];
 		$_SESSION['LastName'] = $row['Last_Name'];
@@ -39,6 +40,7 @@ mysql_select_db($dbname,$conn) or die("Simply can't select database");
 		$_SESSION['Phone'] = $row['Phone_Number'];
 		$_SESSION['Gender'] = $row['Gender'];
 		$_SESSION['Special'] = $row['Special'];
+		$_SESSION['Error'] = "";
 		header("Location:Profile.php");
 		exit();
 	}else{ 
