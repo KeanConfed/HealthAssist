@@ -8,7 +8,7 @@ body {
 }
 
 .header {
-  width: 30%;
+  width: 666px;
   margin: 50px auto 0px;
   color: white;
   background: #5F9EA0;
@@ -17,17 +17,21 @@ body {
   border-bottom: none;
   border-radius: 10px 10px 0px 0px;
   padding: 20px;
+height:80px;
 }
 form, .content {
-  width: 30%;
+  width: 666px;
   margin: 0px auto;
   padding: 20px;
   border: 1px solid #B0C4DE;
   background: white;
   border-radius: 0px 0px 10px 10px;
 }
-.input-group {
+.table {
   margin: 10px 0px 10px 0px;
+padding-left:50px;
+padding-right:50px;
+
 }
 .input-group label {
   display: block;
@@ -69,12 +73,13 @@ form, .content {
 	background: -ms-linear-gradient(top, #65a9d7, #3e779d);
 	background: -o-linear-gradient(top, #65a9d7, #3e779d);
 	background-image: -ms-linear-gradient(top, #65a9d7 0%, #3e779d 100%);
-	padding: 11px 30px;
+	padding: 22px 33px;
    
   	margin:0 auto;
 	margin-bottom:36px;
 	margin-top:36px;
-    	width: 150px;
+    	width: 200px;
+	
 
 }
 .btn:hover {
@@ -155,5 +160,8 @@ margin-top:24px;
 #search_special {
 text-align:center;
 }
+
+
+
 
 

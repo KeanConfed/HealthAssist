@@ -1,3 +1,4 @@
+
 <!DOCTYPE html>
 <HTML>
 <!--
@@ -11,31 +12,33 @@ April 24, 2018
 
 <HEAD>
 	<meta charset="UTF-8">
-	<TITLE> Health Assist </TITLE>
+	<TITLE> Entry </TITLE>
 	
 	<script src="https://ajax.googleapis.com/ajax/libs/jquery/3.2.1/jquery.min.js">	</script>
 	
-	<link rel="stylesheet" type="text/css" href="..\CSS\style.css">	
+	<link rel="stylesheet" type="text/css" href="style.css">	
 </HEAD>
 
 <BODY>
 	<!--greeting header-->
-	<div id='greet'>
+	<div class="header">
 		<H1>Welcome to HealthAssist!</H1>	
 		<h4>Please click the option that applies to you!</h4>
-	</div><!--greet div ends-->
+	</div>	
 
-	<div class="main">
+	<div class="content">
 		<!-- contains 2 buttons I am a Patient and I am a Doctor-->
-		<div class="button-panel">
+		<div class="input-group">
 		
 			<!--<Patient Button brings to search page -->
-			<a href="Search.php" class ='button' id='btnIPat'>I am a Patient</a>
+			<a href="search.php" class ='btn' id='btnIPat'>I am a Patient</a>
 				
 			<!--Doctor Button brings to doctor page-->
-			<a href="Doctor.html" class='button' id='btnIDoc'>I am a Doctor</a>
+			<a href="doctor.php" class='btn' id='btnIDoc'>I am a Doctor</a>
 		</div><!-- end of div button-panel -->
 	</div><!-- end of main -->
+
+
 	
 </BODY>
 

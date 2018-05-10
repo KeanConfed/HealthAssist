@@ -1,3 +1,4 @@
+<?php session_start(); ?>
 <!DOCTYPE html>
 <HTML>
 <!--
@@ -7,31 +8,31 @@ HealthAssist Web-Application
 April 24, 2018
 -->
 
-
-<!--Search.html page -->
+<!--search.html page -->
 
 <HEAD>
 	<meta charset="UTF-8">
 	<TITLE> Search </TITLE>
 	
-
+	<script src="https://ajax.googleapis.com/ajax/libs/jquery/3.2.1/jquery.min.js">	</script>
 	
-	<link rel="stylesheet" type="text/css" href="..\CSS\style.css">
+	<link rel="stylesheet" type="text/css" href="style.css">
+
 </HEAD>
 
 <BODY>
-	
-	<div id='greet'>
-	<br>
-	<H1>Search</H1>
-	</div>
+	<!--greeting header-->
+	<div class="header">
+		<H1>Welcome to HealthAssist!</H1>	
+		<h4>Search for a doctor with a specialization</h4>
+	</div>	
 
-	<div class="main">	
-		<div class="button-panel">
-		
-		<p id='p_search'>I'M looking for a Doctor Specializing in:</p>
-		<br>
-		<select id ='s_spselect'> 
+	<form action="results.php" method="post">   
+  
+<p id="p_looking">I'm looking for a Doctor Specializing in:</p><br/>
+
+  	<div id ='search_special'>
+					<select id ='r_spselect' name="specialization" text-align="center"> 
 						<option value="Anatomical pathology">Anatomical pathology</option>
 						<option value="Anesthesiology">Anesthesiology</option>
 						<option value="Cardiology">Cardiology</option>
@@ -71,16 +72,12 @@ April 24, 2018
 						<option value="Rheumatology">Rheumatology</option>
 						<option value="Urology">Urology</option>
 					</select>
-		
-		
-			<!--<Patient Button brings to search page -->
-			
-				<br><br>
-			<!--Doctor Button-->
-			<a href="Results.php" class='button' id='btnSearch'>Search</a>
-		</div>
-	</div>
-	
+				
+  	</div>
+  	<div class="input-group">
+  	  <button type="submit" class="btn" name="search">Search</button>
+  	</div>
+  </form>
 </BODY>
 
 </HTML>
